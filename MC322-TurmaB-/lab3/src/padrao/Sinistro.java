@@ -61,7 +61,7 @@ public class Sinistro {
                 "ID=" + ID +
                 ", data='" + data + '\'' +
                 ", endereco='" + endereco + '\'' +
-                ", seguradora=" + seguradora +
+                //", seguradora=" + seguradora +
                 ", cliente=" + cliente +
                 '}';
     }

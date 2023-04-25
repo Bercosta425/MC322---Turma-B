@@ -5,94 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main{
-        public static void main(String[] args) throws ParseException {
+        //Método que coleta dados de um cliente:
+        public static void Coletadados(List<Veiculo> listaVeiculos) throws ParseException {
                 Scanner scanner = new Scanner(System.in);
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                Veiculo Gol_mil_branco = new Veiculo("BRA2019", "Volkswagen", "Gol mil Branco", 1980);
-                Date dataLicenca = new Date(2002, Calendar.NOVEMBER, 9);
-                Date dataNascimento = new Date(2010, Calendar.DECEMBER, 9);
-                Date dataFundacao = new Date(2020, Calendar.DECEMBER, 18);
-                List<Veiculo> listaVeiculos = new ArrayList<>();
-
-                Cliente cliente = new Cliente("Jose", "Rua do Jose", listaVeiculos);
-                ClientePF clientePf = new ClientePF("Pedro", "Rua do Pedro", listaVeiculos, dataLicenca, "Doutorado em Física", "Muito alta", "280.012.389-38", dataNascimento);
-                ClientePJ clientePj = new ClientePJ("Empresa", "Rua da Empresa", listaVeiculos, "51.174.235/0001-30", dataFundacao);
-                List<Cliente> listaClientes = new ArrayList<>();
-
-                List<Sinistro> listaSinistros = new ArrayList<>();
-                //Instanciação de Seguradora
-                Seguradora seguradora1 = new Seguradora("Seguradora", "99999999", "segurado@novas.com", "Rua da seguradora", listaSinistros, listaClientes);
-                Sinistro sinistro = new Sinistro(1234, "17/02/2010", "Rua do Sinistro", seguradora1, clientePf);
-                listaClientes.add(clientePf);
-                listaClientes.add(clientePj);
-                listaSinistros.add(sinistro);
-
-                //Cadastro e remoção de um clientePF
-                if(seguradora1.cadastrarCliente(clientePf)){
-                        System.out.println("Cadastrou");
-                        System.out.println(seguradora1.getListaClientes());
-                }
-                else{
-                        System.out.println("Não cadastrou");
-                        System.out.println(seguradora1.getListaClientes());
-                }
-
-                if(seguradora1.removerCliente(clientePf)){
-                        System.out.println("Removeu");
-                        System.out.println(seguradora1.getListaClientes());
-                }
-                else{
-                        System.out.println("Não removeu");
-                        System.out.println(seguradora1.getListaClientes());
-                }
-
-                //Métodos para validar CPF e CNPJ
-                if(clientePf.validarCPF(clientePf.getCpf())){
-                        System.out.println("CPF validado");
-                }
-                else{
-                        System.out.println("CPF não validado");
-                }
-                if(clientePj.validarCNPJ(clientePj.getCNPJ())){
-                        System.out.println("CNPJ validado");
-                }
-                else{
-                        System.out.println("CNPJ não validado");
-                }
-
-                //Adicionando um veiculo para cada cliente
-                listaVeiculos.add(Gol_mil_branco);
-                clientePj.setListaVeiculos(listaVeiculos);
-                clientePf.setListaVeiculos(listaVeiculos);
-
-                //Cadastrando ClientePF e Cliente PJ
-                if(seguradora1.cadastrarCliente(clientePf) && seguradora1.cadastrarCliente(clientePj)){
-                        System.out.println("Cadastrou");
-                        System.out.println(seguradora1.getListaClientes());
-                }
-                else{
-                        System.out.println("Não cadastrou");
-                        System.out.println(seguradora1.getListaClientes());
-                }
-
-                //Print para método toString de cada classe
-                System.out.println(Gol_mil_branco.toString());
-                //System.out.println(seguradora1.toString());
-                //System.out.println(clientePf.toString());
-                //System.out.println(clientePj.toString());
-                //System.out.println(sinistro.toString());
-                //System.out.println(cliente.toString());
-
-                //listarClientes, visualizarSinistro(cliente: String)
-                // e listarSinistros();
-
-                /*System.out.println(seguradora1.listarClientes("ClientePJ"));
-                System.out.println(seguradora1.listarClientes("ClientePF"));
-                System.out.println(seguradora1.visualizarSinistro(clientePj.getNome()));
-                System.out.println(seguradora1.listarSinistros());*/
-
-
-                //Implementação do método System.in para coleta de dados de um cliente:
                 System.out.println("Digite o novo cliente");
                 String nome = scanner.nextLine();
                 System.out.println("Digite o endereco deste");
@@ -134,7 +50,103 @@ public class Main{
                 ClientePF cliente_novo = new ClientePF(nome, endereco, listaVeiculos, dataLicenca2, educacao, classeEconomica, cpf, dataNascimento2);
                 System.out.println("O cliente registrado foi:");
                 System.out.println(cliente_novo.toString());
+        }
 
+
+        public static void main(String[] args) throws ParseException {
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                Veiculo Gol_mil_branco = new Veiculo("BRA2019", "Volkswagen", "Gol mil Branco", 1980);
+                Date dataLicenca = new Date(2002, Calendar.NOVEMBER, 9);
+                Date dataNascimento = new Date(2010, Calendar.DECEMBER, 9);
+                Date dataFundacao = new Date(2020, Calendar.DECEMBER, 18);
+                List<Veiculo> listaVeiculos = new ArrayList<>();
+
+                Cliente cliente = new Cliente("Jose", "Rua do Jose", listaVeiculos);
+                ClientePF clientePf = new ClientePF("Pedro", "Rua do Pedro", listaVeiculos, dataLicenca, "Doutorado em Física", "Muito alta", "280.012.389-38", dataNascimento);
+                ClientePJ clientePj = new ClientePJ("Empresa", "Rua da Empresa", listaVeiculos, "51.174.235/0001-30", dataFundacao);
+
+                List<Cliente> listaClientes = new ArrayList<>();
+                List<Sinistro> listaSinistros = new ArrayList<>();
+
+                //Instanciação de Seguradora
+                Seguradora seguradora1 = new Seguradora("Seguradora", "99999999", "segurado@novas.com", "Rua da seguradora", listaSinistros, listaClientes);
+                Sinistro sinistro = new Sinistro(1234, "17/02/2010", "Rua do Sinistro", seguradora1, clientePf);
+                listaClientes.add(clientePf);
+                listaClientes.add(clientePj);
+                listaSinistros.add(sinistro);
+
+                //Cadastro e remoção de um clientePF
+                System.out.println("1) Cadastro e remoção de um clientePF:");
+                if(seguradora1.cadastrarCliente(clientePf)){
+                        System.out.println("Cadastrou");
+                        System.out.println(seguradora1.getListaClientes() + "\n");
+
+                }
+                else{
+                        System.out.println("Não cadastrou");
+                        System.out.println(seguradora1.getListaClientes() + "\n");
+
+                }
+
+                if(seguradora1.removerCliente(clientePf)){
+                        System.out.println("Removeu");
+                        System.out.println(seguradora1.getListaClientes() + "\n");
+                }
+                else{
+                        System.out.println("Não removeu");
+                        System.out.println(seguradora1.getListaClientes() + "\n");
+                }
+
+                //Métodos para validar CPF e CNPJ
+                System.out.println("2) Métodos para validar CPF e CNPJ:");
+                if(clientePf.validarCPF(clientePf.getCpf())){
+                        System.out.println("CPF validado" + "\n");
+                }
+                else{
+                        System.out.println("CPF não validado");
+                }
+                if(clientePj.validarCNPJ(clientePj.getCNPJ())){
+                        System.out.println("CNPJ validado" + "\n");
+                }
+                else{
+                        System.out.println("CNPJ não validado");
+                }
+
+                //Adicionando um veiculo para cada cliente
+                listaVeiculos.add(Gol_mil_branco);
+                clientePj.setListaVeiculos(listaVeiculos);
+                clientePf.setListaVeiculos(listaVeiculos);
+
+                //Cadastrando ClientePF e Cliente PJ
+                System.out.println("3) Cadastrando ClientePF e Cliente PJ:");
+                if(seguradora1.cadastrarCliente(clientePf) && seguradora1.cadastrarCliente(clientePj)){
+                        System.out.println("Cadastrou");
+                        System.out.println(seguradora1.getListaClientes() + "\n");
+                }
+                else{
+                        System.out.println("Não cadastrou");
+                        System.out.println(seguradora1.getListaClientes() + "\n");
+                }
+
+                //Print para método toString de cada classe
+                System.out.println("4) Print para método toString de cada classe:");
+                System.out.println(Gol_mil_branco.toString() + "\n");
+                System.out.println(seguradora1.toString() + "\n");
+                System.out.println(clientePf.toString() + "\n");
+                System.out.println(clientePj.toString() + "\n");
+                System.out.println(sinistro.toString() + "\n");
+                System.out.println(cliente.toString() + "\n");
+
+                //listarClientes, visualizarSinistro(cliente: String)
+                // e listarSinistros();
+                System.out.println("5) Implementação de listarClientes(), visualizarSinistro(), e listarSinistros():");
+                System.out.println(seguradora1.listarClientes("ClientePJ") + "\n");
+                System.out.println(seguradora1.listarClientes("ClientePF") + "\n");
+                System.out.println(seguradora1.visualizarSinistro(clientePj.getNome()) + "\n");
+                System.out.println(seguradora1.listarSinistros() + "\n");
+
+                System.out.println("6) Chamada do método que coleta dados de um novo cliente:");
+                Coletadados(listaVeiculos);
         }
 }
 

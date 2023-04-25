@@ -70,10 +70,10 @@ public class Seguradora {
     @Override
     public String toString() {
         return "padrao.Seguradora{" +
-                "nome='" + nome + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", email='" + email + '\'' +
-                ", endereco='" + endereco + '\'' +
+                "nome='" + nome  +
+                ", telefone='" + telefone +
+                ", email='" + email +
+                ", endereco='" + endereco +
                 ", listaSinistros=" + listaSinistros +
                 ", listaCLientes=" + listaClientes +
                 '}';
