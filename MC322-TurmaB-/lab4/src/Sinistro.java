@@ -1,5 +1,3 @@
-package padrao;
-
 public class Sinistro {
     private int ID;
     private String data;

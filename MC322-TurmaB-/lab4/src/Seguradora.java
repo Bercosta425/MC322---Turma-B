@@ -1,5 +1,3 @@
-package padrao;
-
 import java.util.ArrayList;
 import java.util.List;
 public class Seguradora {
@@ -81,7 +79,7 @@ public class Seguradora {
 
     public boolean cadastrarCliente(Cliente cliente){
         if (cliente instanceof ClientePF){
-            if(((ClientePF) cliente).validarCPF(((ClientePF) cliente).getCpf())){
+            if(Validacao.validarCPF(((ClientePF) cliente).getCpf())){
                 listaClientes.add(cliente);
                 return true;
             }
@@ -90,7 +88,7 @@ public class Seguradora {
             }
         }
         else if(cliente instanceof ClientePJ){
-            if(((ClientePJ) cliente).validarCNPJ(((ClientePJ) cliente).getCNPJ())){
+            if(Validacao.validarCNPJ(((ClientePJ) cliente).getCNPJ())){
                 listaClientes.add(cliente);
                 return true;
             }
@@ -111,26 +109,23 @@ public class Seguradora {
         }
     }
 
-     public List<Cliente> listarClientes(String tipoCliente){
+     public void listarClientes(String tipoCliente){
         List<Cliente> List_tipoCliente = new ArrayList<>();
         int i;
         if(tipoCliente == "ClientePF"){
             for(i = 0; i < listaClientes.size(); i++){
                 if(listaClientes.get(i) instanceof ClientePF){
-                    List_tipoCliente.add(listaClientes.get(i));
-                    return List_tipoCliente;
+                    System.out.println(listaClientes.get(i));
                 }
             }
         }
         else if(tipoCliente == "ClientePJ"){
             for(i = 0; i < listaClientes.size(); i++){
                 if(listaClientes.get(i) instanceof ClientePJ){
-                    List_tipoCliente.add(listaClientes.get(i));
-                    return List_tipoCliente;
+                    System.out.println(listaClientes.get(i));
                 }
             }
         }
-        return List_tipoCliente;
     }
 
     public boolean gerarSinistro(Sinistro sinistro){
@@ -143,7 +138,7 @@ public class Seguradora {
         }
     }
 
-    public boolean visualizarSinistro(String cliente){
+    public boolean visualizarSinistro(Cliente cliente){
         for (int i = 0; i < listaSinistros.size(); i++){
             if(listaSinistros.get(i).getCliente().equals(cliente)){
                 return true;
@@ -152,7 +147,23 @@ public class Seguradora {
         return false;
     }
 
-    public List<Sinistro> listarSinistros(){
-        return listaSinistros;
+    public void listarSinistros(){
+        for(Sinistro sinistro : listaSinistros){
+            System.out.println(sinistro.toString());
+        }
+    }
+
+    public double calcularPrecoSeguroCliente(Cliente cliente){
+        return cliente.calculaScore () * (1 + listaSinistros.size() );
+    }
+    /*public double calcularPrecoSeguroClientePJ(ClientePJ cliente){
+        return cliente.calculaScore () * (1 + listaSinistros.size() );
+    }*/
+    public double calcularReceita(){
+        double total = 0;
+        for(Cliente cliente : listaClientes){
+            total += calcularPrecoSeguroCliente(cliente);
+        }
+        return total;
     }
 }

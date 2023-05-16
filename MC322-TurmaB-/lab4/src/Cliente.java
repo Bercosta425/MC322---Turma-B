@@ -1,12 +1,10 @@
-package padrao;
-
-import java.util.Date;
 import java.util.List;
 
 public class Cliente {
     private String nome;
     private String endereco;
     private List<Veiculo> listaVeiculos;
+    private double valorSeguro;
 
     public Cliente(String nome, String endereco, List<Veiculo> listaVeiculos) {
         this.nome = nome;
@@ -35,6 +33,17 @@ public class Cliente {
 
     public void setListaVeiculos(List<Veiculo> listaVeiculos) {
         this.listaVeiculos = listaVeiculos;
+    }
+    public void setValorSeguro(double valorSeguro){
+        this.valorSeguro = valorSeguro;
+    }
+    public double getValorSeguro(){
+        return valorSeguro;
+    }
+
+    public double calculaScore(){
+        double i= 0;
+        return i;
     }
 
 

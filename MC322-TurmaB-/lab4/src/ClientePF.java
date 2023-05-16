@@ -1,22 +1,22 @@
-package padrao;
-
 import java.util.Date;
 import java.util.List;
 
 public class ClientePF extends Cliente {
     private Date dataLicenca;
     private String educacao;
+    private String genero;
     private String classeEconomica;
     private String cpf ;
     private Date dataNascimento ;
 
-    public ClientePF(String nome, String endereco, List<Veiculo> listaVeiculos, Date dataLicenca, String educacao, String classeEconomica, String cpf, Date dataNascimento) {
+    public ClientePF(String nome, String endereco, List<Veiculo> listaVeiculos, Date dataLicenca, String educacao, String classeEconomica, String cpf, Date dataNascimento, String genero) {
         super(nome, endereco, listaVeiculos);
         this.dataLicenca = dataLicenca;
         this.educacao = educacao;
         this.classeEconomica = classeEconomica;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
+        this.genero = genero;
     }
 
     public Date getDataLicenca() {
@@ -47,6 +47,13 @@ public class ClientePF extends Cliente {
         return cpf;
     }
 
+    public String getGenero(){return genero;
+    }
+
+    public void setGenero(String genero){
+        this.genero = genero;
+    }
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -59,54 +66,21 @@ public class ClientePF extends Cliente {
         this.dataNascimento = dataNascimento;
     }
 
-    public boolean validarCPF(String CPF){
-        int i, soma = 0, result, primer_digito, second_digito;
-        String cpf2 = "";
-        cpf = cpf.replace(".", "");
-        cpf = cpf.replace("-", "");
-        for(i = 0; i <= 8; i++) {
-            cpf2 = cpf2 + cpf.charAt(i);
+    public double calculaScore(){
+        Date anos18 = new Date(2005, 05, 13);
+        Date anos30 = new Date(1993, 05, 13);
+        Date anos60 = new Date(1963, 05, 13);
+        Date anos90 = new Date(1933, 05, 13);
+        if(dataNascimento.before(anos18) && dataNascimento.after(anos30)){
+            return CalcSeguro.VALOR_BASE.getValor() * CalcSeguro.FATOR_18_30.getValor() * getListaVeiculos().size();
         }
-
-        if(cpf.length() != 11){
-            return false;
+        else if (dataNascimento.before(anos30) && dataNascimento.after(anos60)){
+            return CalcSeguro.VALOR_BASE.getValor() * CalcSeguro.FATOR_30_60.getValor() * getListaVeiculos().size();
         }
-        //Calcula primeiro digito verificador
-        for(i = 0; i != 9; i++){
-            soma  = soma + Character.getNumericValue(cpf.charAt(i)) * (10 - i);
+        else if (dataNascimento.before(anos60) && dataNascimento.after(anos90)){
+            return CalcSeguro.VALOR_BASE.getValor() * CalcSeguro.FATOR_60_90.getValor() * getListaVeiculos().size();
         }
-        result = soma % 11;
-
-        if(result < 2) {
-            primer_digito = 0;
-        }
-        else{
-            primer_digito = 11 - result;
-        }
-
-        cpf2 = cpf2 + String.valueOf(primer_digito);
-        soma = 0;
-
-        //Calcula o segundo digito verificador
-        for(i = 1; i != 10; i++){
-            soma  = soma + Character.getNumericValue(cpf.charAt(i))*(11 - i);
-        }
-        result = soma % 11;
-
-        if(result < 2){
-            second_digito = 0;
-        }
-        else{
-            second_digito = 11 - result;
-        }
-        cpf2 = cpf2 + String.valueOf(second_digito);
-
-        if(cpf2.equals(cpf2)) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return 0.0;
     }
     @Override
     public String toString() {
