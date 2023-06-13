@@ -1,8 +1,13 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validacao {
         public static boolean validarCPF(String cpf){
+
             int i, soma = 0, result, primer_digito, second_digito;
             String cpf2 = "";
             cpf = cpf.replace(".", "");
@@ -50,6 +55,17 @@ public class Validacao {
             else {
                 return false;
             }
+
+        }
+        public static ClientePF validarCPF2(String cpf, List<Cliente> listaCliente){
+            for(Cliente cliente : listaCliente){
+                if(cliente instanceof ClientePF){
+                    if(cpf.equals(((ClientePF) cliente).getCpf())){
+                        return (ClientePF)cliente;
+                    }
+                }
+            }
+            return null;
         }
         public static boolean validarCNPJ(String CNPJ) {
         int i, valor = 0, j = 5, primer, second;
@@ -103,6 +119,16 @@ public class Validacao {
             return false;
         }
     }
+        public static ClientePJ validarCNPJ2(String cnpj, List<Cliente> listaCliente){
+            for(Cliente cliente : listaCliente){
+                if(cliente instanceof ClientePJ){
+                    if(cnpj.equals(((ClientePJ) cliente).getCNPJ())){
+                        return (ClientePJ) cliente;
+                    }
+                }
+            }
+            return null;
+        }
         public static boolean validarNOME(String nome){
             return (nome.matches("[a-zA-Z]+"));
         }
@@ -117,24 +143,28 @@ public class Validacao {
             return (classe.matches("[a-zA-Z]+"));
         }
         public static boolean validarENDERECO(String endereco){
-            return (endereco.matches("[a-zA-Z0-9]+"));
+            String textoSemEspacos = endereco.replaceAll("\\s", "");
+
+            return textoSemEspacos.matches("[a-zA-Z]+");
         }
         public static boolean validarMARCA(String marca){
             return (marca.matches("[a-zA-Z]+"));
         }
         public static boolean validarPLACA(String placa){
-            return (placa.matches("[a-zA-Z]+"));
+            String regex = "^[A-Z]{3}[0-9]{4}$";
+
+            return Pattern.matches(regex, placa);
         }
         public static boolean validarMODELO(String modelo){
             return (modelo.matches("[a-zA-Z0-9]+"));
         }
         public static boolean validarANOFABRICACAO(String ano){
-            return (ano.matches("[0-9]+"));
+            String regex = "^[0-9]{4}$";
+            return ano.matches(regex);
         }
         public static boolean validarTELEFONE(String telefone){
         return (telefone.matches("[0-9]+"));
     }
-
         public static boolean validarEMAIL(String email){
             // Expressão regular para verificar o formato do email
             String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
@@ -147,6 +177,16 @@ public class Validacao {
 
             // Verificar se o email corresponde ao padrão
             return matcher.matches();
+    }
+
+    public static Date converterStringParaData(String dataString, String formato) {
+        SimpleDateFormat formatter = new SimpleDateFormat(formato);
+        try {
+            return formatter.parse(dataString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

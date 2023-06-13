@@ -1,3 +1,5 @@
+package pacote;
+
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class ClientePJ extends Cliente{
 
     @Override
     public String toString() {
-        return "padrao.ClientePJ{" +
+        return "padrao.pacote.ClientePJ{" +
                 "CNPJ='" + CNPJ + '\'' +
                 ", dataFundacao=" + dataFundacao +
                 '}';

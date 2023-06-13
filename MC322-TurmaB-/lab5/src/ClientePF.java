@@ -2,71 +2,53 @@ import java.util.Date;
 import java.util.List;
 
 public class ClientePF extends Cliente {
-    private Date dataLicenca;
     private String educacao;
     private String genero;
-    private String classeEconomica;
     private String cpf ;
     private Date dataNascimento ;
+    private List<Veiculo> listaVeiculos;
 
-    public ClientePF(String nome, String endereco, List<Veiculo> listaVeiculos, Date dataLicenca, String educacao, String classeEconomica, String cpf, Date dataNascimento, String genero) {
-        super(nome, endereco, listaVeiculos);
-        this.dataLicenca = dataLicenca;
+    public ClientePF(String nome, String endereco, String email, String telefone, String educacao, String genero, String cpf, Date dataNascimento, List<Veiculo> listaVeiculos) {
+        super(nome, endereco, email, telefone);
         this.educacao = educacao;
-        this.classeEconomica = classeEconomica;
+        this.genero = genero;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.genero = genero;
-    }
-
-    public Date getDataLicenca() {
-        return dataLicenca;
-    }
-
-    public void setDataLicenca(Date dataLicenca) {
-        this.dataLicenca = dataLicenca;
+        this.listaVeiculos = listaVeiculos;
     }
 
     public String getEducacao() {
         return educacao;
     }
-
     public void setEducacao(String educacao) {
         this.educacao = educacao;
     }
-
-    public String getClasseEconomica() {
-        return classeEconomica;
+    public String getGenero() {
+        return genero;
     }
-
-    public void setClasseEconomica(String classeEconomica) {
-        this.classeEconomica = classeEconomica;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
-
     public String getCpf() {
         return cpf;
     }
-
-    public String getGenero(){return genero;
-    }
-
-    public void setGenero(String genero){
-        this.genero = genero;
-    }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
     public Date getDataNascimento() {
         return dataNascimento;
     }
-
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+    public List<Veiculo> getListaVeiculos() {
+        return listaVeiculos;
+    }
+    public void setListaVeiculos(List<Veiculo> listaVeiculos) {
+        this.listaVeiculos = listaVeiculos;
+    }
 
-    public double calculaScore(){
+    /*public double calculaScore(){
         Date anos18 = new Date(2005, 05, 13);
         Date anos30 = new Date(1993, 05, 13);
         Date anos60 = new Date(1963, 05, 13);
@@ -81,12 +63,34 @@ public class ClientePF extends Cliente {
             return CalcSeguro.VALOR_BASE.getValor() * CalcSeguro.FATOR_60_90.getValor() * getListaVeiculos().size();
         }
         return 0.0;
+    }*/
+
+    public boolean cadastrarveiculo(Veiculo veiculo){
+        if (listaVeiculos.contains(veiculo)) {
+            return false;
+        } else {
+            listaVeiculos.add(veiculo);
+            return true;
+        }
     }
+    public boolean removerveiculo(Veiculo veiculo){
+        if (listaVeiculos.contains(veiculo)) {
+            listaVeiculos.remove(veiculo);
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
-        return "padrao.ClientePF{" +
-                "cpf='" + cpf + '\'' +
+        return "ClientePF{" +
+                "educacao='" + educacao + '\'' +
+                ", genero='" + genero + '\'' +
+                ", cpf='" + cpf + '\'' +
                 ", dataNascimento=" + dataNascimento +
+                ", listaVeiculos=" + listaVeiculos +
                 '}';
     }
 }

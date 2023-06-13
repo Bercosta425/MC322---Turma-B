@@ -1,3 +1,5 @@
+package pacote;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Seguradora {
@@ -67,7 +69,7 @@ public class Seguradora {
 
     @Override
     public String toString() {
-        return "padrao.Seguradora{" +
+        return "padrao.pacote.Seguradora{" +
                 "nome='" + nome  +
                 ", telefone='" + telefone +
                 ", email='" + email +
@@ -112,14 +114,14 @@ public class Seguradora {
      public void listarClientes(String tipoCliente){
         List<Cliente> List_tipoCliente = new ArrayList<>();
         int i;
-        if(tipoCliente == "ClientePF"){
+        if(tipoCliente == "pacote.ClientePF"){
             for(i = 0; i < listaClientes.size(); i++){
                 if(listaClientes.get(i) instanceof ClientePF){
                     System.out.println(listaClientes.get(i));
                 }
             }
         }
-        else if(tipoCliente == "ClientePJ"){
+        else if(tipoCliente == "pacote.ClientePJ"){
             for(i = 0; i < listaClientes.size(); i++){
                 if(listaClientes.get(i) instanceof ClientePJ){
                     System.out.println(listaClientes.get(i));
@@ -156,7 +158,7 @@ public class Seguradora {
     public double calcularPrecoSeguroCliente(Cliente cliente){
         return cliente.calculaScore () * (1 + listaSinistros.size() );
     }
-    /*public double calcularPrecoSeguroClientePJ(ClientePJ cliente){
+    /*public double calcularPrecoSeguroClientePJ(pacote.ClientePJ cliente){
         return cliente.calculaScore () * (1 + listaSinistros.size() );
     }*/
     public double calcularReceita(){

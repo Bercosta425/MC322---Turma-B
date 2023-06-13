@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b417b7e4-ae32-4ebb-91d8-683249bbdb4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/MC322-TurmaB-.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4/src/pacote/Veiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/lab4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/lab5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/CalcSeguro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/ClientePF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/ClientePJ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Condutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Frota.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Leitura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/MenuOperacoes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/MetodosMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Seguradora.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Seguro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/SeguroPf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/SeguroPj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Sinistro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/SubmenuOps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab5/src/Validacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../oi/oi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/CalcSeguro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/CalcSeguro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/ClientePF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/ClientePF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/ClientePJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/ClientePJ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/MenuOperacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/MenuOperacoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/Seguradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/Seguradora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/Sinistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/Sinistro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/SubmenuOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/SubmenuOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/Validacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/src/pacote/Validacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/src/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/src/Veiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/lab4/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/lab4/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/lab4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/lab4/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/lab4/Validacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/lab4/Validacao.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2R73kBs7U48uZ3cMrNySp2eHgu1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Suporte/Documents/MC322/MC322-TurmaB-/Lab2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b417b7e4-ae32-4ebb-91d8-683249bbdb4d" name="Changes" comment="" />
+      <created>1686587433130</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686587433130</updated>
+    </task>
+    <servers />
+  </component>
+</project>

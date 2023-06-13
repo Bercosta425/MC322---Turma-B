@@ -1,3 +1,5 @@
+package pacote;
+
 public class Sinistro {
     private int ID;
     private String data;
@@ -55,7 +57,7 @@ public class Sinistro {
     }
 
     public String toString() {
-        return "padrao.Sinistro{" +
+        return "padrao.pacote.Sinistro{" +
                 "ID=" + ID +
                 ", data='" + data + '\'' +
                 ", endereco='" + endereco + '\'' +

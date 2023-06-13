@@ -1,4 +1,5 @@
-import java.awt.*;
+package pacote;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -333,7 +334,7 @@ public class Main{
                                 }
                         }
                         else{
-                                System.out.println("Seguradora não achada!");
+                                System.out.println("pacote.Seguradora não achada!");
                                 return listaSeguradora;
                         }
                 }
@@ -498,17 +499,17 @@ public class Main{
                                 for(Sinistro sinistro2 : seguradora3.getListaSinistros()){
                                         if (sinistro2.getID() == (sinistro1)) {
                                                 seguradora3.getListaClientes().remove(sinistro2);
-                                                System.out.println("Sinistro removido");
+                                                System.out.println("pacote.Sinistro removido");
                                                 return listaSeguradora;
                                         }
                                         else{
-                                                System.out.println("Sinistro não removido");
+                                                System.out.println("pacote.Sinistro não removido");
                                                 return listaSeguradora;
                                         }
                                 }
                         }
                         else{
-                                System.out.println("Sinistro não removido");
+                                System.out.println("pacote.Sinistro não removido");
                                 return listaSeguradora;
                         }
                 }
@@ -566,7 +567,7 @@ public class Main{
                         case GERAR_SINISTRO:
                                 Sinistro sinistro = leSinistro(lista);
                                 if(sinistro.getSeguradora().gerarSinistro(sinistro)) {
-                                        System.out.println("Sinistro foi gerado");
+                                        System.out.println("pacote.Sinistro foi gerado");
                                 }
                                 break;
                         case TRANSFERIR:
@@ -599,7 +600,7 @@ public class Main{
                         case CADASTRAR_SEGURADORA:
                                 Seguradora seguradora = leSeguradora();
                                 listaSeguradora.add(seguradora);
-                                System.out.println("Seguradora cadastrada");
+                                System.out.println("pacote.Seguradora cadastrada");
                                 break;
                         case LISTAR_PF_SEGURADORA:
                                 LISTAR_PF_SEGURADORA(listaSeguradora);
@@ -636,7 +637,7 @@ public class Main{
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
 
-                // ######## Instanciação das classes: Veiculo, ClientePJ, ClientePF, e Seguradora. ########### \\
+                // ######## Instanciação das classes: Veiculo, pacote.ClientePJ, pacote.ClientePF, e pacote.Seguradora. ########### \\
                 Veiculo Gol_mil_branco = new Veiculo("BRA2019", "Volkswagen", "Gol mil Branco", 1980);
                 Date dataLicenca = new Date(2002, Calendar.NOVEMBER, 9);
                 Date dataNascimento = new Date(2010, Calendar.DECEMBER, 9);
@@ -651,7 +652,7 @@ public class Main{
 
                 listaClientes.add(clientePf);
                 listaClientes.add(clientePj);
-                Seguradora seguradora1 = new Seguradora("Seguradora", "99999999", "segurado@novas.com", "Rua da seguradora", listaSinistros, listaClientes);
+                Seguradora seguradora1 = new Seguradora("pacote.Seguradora", "99999999", "segurado@novas.com", "Rua da seguradora", listaSinistros, listaClientes);
 
                 Sinistro sinistro1 = new Sinistro(1234, "17/02/2010", "Rua do Sinistro1", seguradora1, clientePf);
                 listaSinistros.add(sinistro1);
@@ -664,8 +665,8 @@ public class Main{
 
                 //####### Chamando os métodos, listarClientes(); visualizarSinistro(); listarSinistros(); e calcularReceita()
 
-                seguradora1.listarClientes("ClientePF");
-                seguradora1.listarClientes("ClientePJ");
+                seguradora1.listarClientes("pacote.ClientePF");
+                seguradora1.listarClientes("pacote.ClientePJ");
                 seguradora1.visualizarSinistro(clientePj);
                 seguradora1.visualizarSinistro(clientePf);
                 seguradora1.listarSinistros();
@@ -673,7 +674,7 @@ public class Main{
                 //############################################################################################################\\
 
                 // ##### Atualizar o atributo valorSeguro de cada cliente cadastrado na seguradora utilizando o método calcu-
-                // #####  lar PrecoSeguroCliente() da classe Seguradora;
+                // #####  lar PrecoSeguroCliente() da classe pacote.Seguradora;
 
                 clientePf.setValorSeguro(seguradora1.calcularPrecoSeguroCliente(clientePf));
                 clientePj.setValorSeguro(seguradora1.calcularPrecoSeguroCliente(clientePj));
