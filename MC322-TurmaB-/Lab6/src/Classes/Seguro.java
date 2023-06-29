@@ -99,8 +99,8 @@ public class Seguro {
         joiner.add("Data de Inicio: " + this.dataInicio);
         joiner.add("Data de Fim: " + this.dataFim);
         joiner.add("Seguradora: " + this.seguradora);
-        joiner.add("Lista de Sinistro: " + this.listaSinistro);
-        joiner.add("Lista de Condutor: " + this.listaCondutor);
+        joiner.add("Lista de Sinistro: \n" + this.listaSinistro);
+        joiner.add("Lista de Condutor: \n" + this.listaCondutor);
         joiner.add("Valor Mensal: " + this.ValorMensal);
         return joiner.toString();
     }

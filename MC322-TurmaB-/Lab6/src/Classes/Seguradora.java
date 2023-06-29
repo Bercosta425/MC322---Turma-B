@@ -190,8 +190,9 @@ public class Seguradora {
         joiner.add("Telefone: " + this.telefone);
         joiner.add("Email: " + this.email);
         joiner.add("Endereco: " + this.endereco);
-        joiner.add("Lista de Clientes: " + this.listaClientes);
-        joiner.add("Lista de Seguros: " + this.listaSeguros);
+
+        joiner.add("Lista de Clientes: \n" + this.listaClientes);
+        joiner.add("Lista de Seguros: \n" + this.listaSeguros);
         return joiner.toString();
     }
 

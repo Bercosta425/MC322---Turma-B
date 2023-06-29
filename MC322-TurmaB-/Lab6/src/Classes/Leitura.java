@@ -6,6 +6,7 @@ import java.util.*;
 
 //Classe para leitura de objetos
 public class Leitura {
+    // Métodos com leitura de dados e suas exceções.
     public static ClientePF leClientePf(List<Cliente> listaClientes) {
         List<Veiculo> listaVeiculos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -360,7 +361,7 @@ public class Leitura {
 
 
 
-        System.out.println("***** Lendo dados do novo seguro");
+        System.out.println("***** Lendo dados do novo seguro *****");
         while(seguroPf == null){
             try{
                 System.out.println("Digite o CNPJ da seguradora referente, a data de inicio, a data de fim, e o o CPF do cliente que está gerando o seguro");
@@ -435,7 +436,7 @@ public class Leitura {
 
 
 
-        System.out.println("***** Lendo dados do novo seguro");
+        System.out.println("***** Lendo dados do novo seguro *****");
         while(seguroPf == null){
             try{
                 System.out.println("Digite o CNPJ da seguradora referente, a data de inicio, a data de fim, e o o CPF do cliente que está gerando o seguro");
@@ -503,7 +504,7 @@ public class Leitura {
         SeguroPj seguroPj = null;
 
 
-        System.out.println("***** Lendo dados do novo seguro");
+        System.out.println("***** Lendo dados do novo seguro *****");
         while(seguroPj == null){
             try{
                 System.out.println("Digite o CNPJ da seguradora referente, a data de inicio, a data de fim, e o o CPF do cliente que está gerando o seguro");
@@ -577,7 +578,7 @@ public class Leitura {
 
 
 
-        System.out.println("***** Lendo dados do novo condutor");
+        System.out.println("***** Lendo dados do novo condutor *****");
         while(condutor == null){
             try{
                 System.out.println("Digite o ID do seguro referente, o CNPJ da seguradora referente, CPF do condutor, o nome, o telefone, o email, o endereço e a data de nascimento");

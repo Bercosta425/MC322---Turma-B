@@ -50,7 +50,6 @@ public class Sinistro {
         joiner.add("ID: " + this.ID);
         joiner.add("Data: " + this.data);
         joiner.add("Endereço: " + this.endereco);
-        joiner.add("Seguro: " + this.seguro);
         return joiner.toString();
     }
 }

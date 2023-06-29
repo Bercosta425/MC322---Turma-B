@@ -83,7 +83,6 @@ public class Condutor {
         joiner.add("Email: " + this.email);
         joiner.add("Endereço: " + this.endereco);
         joiner.add("Data de Nascimento: " + this.dataNascimento);
-        joiner.add("Lista de Sinistros: " + this.listasinistro);
         return joiner.toString();
     }
 }

@@ -71,8 +71,8 @@ public class SeguroPj extends Seguro{
     public String toString() {
         StringJoiner joiner = new StringJoiner("\n");
         joiner.add(super.toString());
-        joiner.add("Frota: " + frota.toString());
-        joiner.add("Cliente: " + clientepj.toString());
+        joiner.add("Frota: \n" + frota.toString());
+        joiner.add("Cliente: \n" + clientepj.toString());
         return joiner.toString();
 
 
