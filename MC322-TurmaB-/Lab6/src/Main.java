@@ -1,4 +1,5 @@
-import java.awt.*;
+import Classes.*;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -59,7 +60,7 @@ public class Main{
                         case GERAR_SINISTRO:
                                 Seguro seguro = Leitura.leSeguroPf(lista);
                                 if(seguro.gerarsinistro()){
-                                        System.out.println("Sinistro foi gerado");
+                                        System.out.println("Classes.Sinistro foi gerado");
                                 }
                                 break;
                         case GERAR_SEGUROPF:
@@ -79,7 +80,7 @@ public class Main{
                                 break;
                 }
         }
-        public static void executarOpcaoSubMenu(SubmenuOps subop, List<Seguradora> listaSeguradora) throws ParseException {
+        public static void executarOpcaoSubMenu(SubmenuOps subop, List<Seguradora> listaSeguradora) throws ExcecaoLeitura.ErroDeCNPJ, ExcecaoLeitura.ErroDeCPF, ParseException {
                 switch(subop) {
                         case CADASTRAR_CONDUTOR:
                                 MetodosMenu.CADASTRAR_CONDUTOR(listaSeguradora);
@@ -92,13 +93,13 @@ public class Main{
                                 break;
                         case CADASTRAR_VEICULO:
                                 if(MetodosMenu.cadastrarVeiculo(listaSeguradora)){
-                                        System.out.println("Veiculo cadastrado");
+                                        System.out.println("Classes.Veiculo cadastrado");
                                 }
                                 break;
                         case CADASTRAR_SEGURADORA:
                                 Seguradora seguradora = Leitura.leSeguradora();
                                 listaSeguradora.add(seguradora);
-                                System.out.println("Seguradora cadastrada");
+                                System.out.println("Classes.Seguradora cadastrada");
                                 break;
                         case LISTAR_PF_SEGURADORA:
                                 MetodosMenu.LISTAR_PF_SEGURADORA(listaSeguradora);
@@ -150,7 +151,7 @@ public class Main{
                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
 
-                // ######## Instanciação das classes: Veiculo, ClientePJ, ClientePF, Seguradora, Sinistro, Seguro, e condutor. Em seguida, é aplicado o menu de operações! ########### \\
+                // ######## Instanciação das classes: Classes.Veiculo, Classes.ClientePJ, Classes.ClientePF, Classes.Seguradora, Classes.Sinistro, Classes.Seguro, e condutor. Em seguida, é aplicado o menu de operações! ########### \\
                 Veiculo Gol_mil_branco = new Veiculo("BRA2019", "Volkswagen", "Gol mil Branco", 1980);
                 Date dataLicenca = new Date(2002, Calendar.NOVEMBER, 9);
                 Date dataNascimento = new Date(2010, Calendar.DECEMBER, 9);
@@ -170,7 +171,7 @@ public class Main{
 
                 listaClientes.add(clientePf);
                 listaClientes.add(clientePj);
-                Seguradora seguradora1 = new Seguradora("25.824.319/0001-62", "9999999", "Seguradora", "segurado@novas.com", "Rua da seguradora", listaClientes, listaSeguros);
+                Seguradora seguradora1 = new Seguradora("25.824.319/0001-62", "9999999", "Classes.Seguradora", "segurado@novas.com", "Rua da seguradora", listaClientes, listaSeguros);
                 Date dataSinistro1 = new Date(2011, Calendar.DECEMBER, 8);
                 Date dataSinistro2 = new Date(2013, Calendar.NOVEMBER, 4);
 
@@ -189,7 +190,7 @@ public class Main{
 
                 System.out.println("##################### Segue um exemplo de como gerar um sinistro #########################:\n");
                 if(seguro.gerarsinistro()){
-                        System.out.println("Sinistro gerado");
+                        System.out.println("Classes.Sinistro gerado");
                 }
                 Sinistro sinistro2 = new Sinistro( dataSinistro2, "Rua do Sinistro2", seguro);
                 listaSinistros.add(sinistro2);
@@ -212,8 +213,8 @@ public class Main{
 
                 //####### Chamando os métodos, listarClientes(); visualizarSinistro(); listarSinistros(); e calcularReceita()
 
-                seguradora1.listarClientes("ClientePF");
-                seguradora1.listarClientes("ClientePJ");
+                seguradora1.listarClientes("Classes.ClientePF");
+                seguradora1.listarClientes("Classes.ClientePJ");
 
                 //############################################################################################################\\
 
