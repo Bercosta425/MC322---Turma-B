@@ -1,13 +1,17 @@
 package Arquivos;
 
-public class ArquivoFrota implements l_Arquivo {
+import Classes.Frota;
+
+import java.util.List;
+
+public class ArquivoFrota implements l_Arquivo<Frota>{
     @Override
     public Boolean gravarArquivo() {
         return null;
     }
 
     @Override
-    public String lerArquivo() {
+    public String lerArquivo(List<Frota> lista) {
         return null;
     }
 }

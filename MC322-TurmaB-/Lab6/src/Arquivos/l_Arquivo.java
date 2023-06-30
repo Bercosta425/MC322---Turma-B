@@ -1,6 +1,8 @@
 package Arquivos;
 
-public interface l_Arquivo {
+import java.util.List;
+
+public interface l_Arquivo<T> {
     Boolean gravarArquivo();
-    String lerArquivo();
+    String lerArquivo(List<T> lista);
 }

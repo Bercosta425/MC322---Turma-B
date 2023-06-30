@@ -160,9 +160,8 @@ public static void main(String[] args) throws ParseException, ExcecaoLeitura.Err
    ArrayList<Frota> listaFrota = new ArrayList<>();
 
 
-
    List<String[]> linhas = new ArrayList<>();
-   for(File f : file.listFiles()) {
+  for(File f : file.listFiles()) {
        if (f.getName().endsWith("clientesPF.csv")) {
            BufferedReader br = new BufferedReader(new FileReader(f));
            String linha = br.readLine();
