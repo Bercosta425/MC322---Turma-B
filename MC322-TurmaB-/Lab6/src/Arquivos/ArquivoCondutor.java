@@ -11,7 +11,7 @@ public class ArquivoCondutor implements l_Arquivo<Condutor> {
     }
 
     @Override
-    public String lerArquivo(List<Condutor> lista) {
+    public String lerArquivo(List<Condutor> lista, String path) {
         return null;
     }
 }

@@ -11,7 +11,7 @@ public class ArquivoSinistro implements l_Arquivo<Sinistro> {
     }
 
     @Override
-    public String lerArquivo(List<Sinistro> lista) {
+    public String lerArquivo(List<Sinistro> lista, String path) {
         return null;
     }
 }

@@ -11,7 +11,7 @@ public class ArquivoFrota implements l_Arquivo<Frota>{
     }
 
     @Override
-    public String lerArquivo(List<Frota> lista) {
+    public String lerArquivo(List<Frota> lista, String path) {
         return null;
     }
 }

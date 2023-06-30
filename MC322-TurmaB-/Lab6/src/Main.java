@@ -150,16 +150,17 @@ public static void executarOpcaoSubMenu(SubmenuOps subop, List<Seguradora> lista
 }
 public static void main(String[] args) throws ParseException, ExcecaoLeitura.ErroDeCNPJ, ExcecaoLeitura.ErroDeCPF, IOException {
    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+   //Caminho para chegar nos arquivos a serem lidos.
    String path = "..\\..\\lab06-seguradora_arquivos\\lab06-seguradora_arquivos_v2\\";
    File file = new File(path);
-   String demilitador = ";";
    ArrayList<ClientePF> listaClientepf = new ArrayList<>();
    ArrayList<ClientePJ> listaClientepj = new ArrayList<>();
    ArrayList<Condutor> listaCondutor2 = new ArrayList<>();
    ArrayList<Veiculo> listaVeiculo = new ArrayList<>();
    ArrayList<Frota> listaFrota = new ArrayList<>();
 
-
+    String demilitador = ",";
    List<String[]> linhas = new ArrayList<>();
   for(File f : file.listFiles()) {
        if (f.getName().endsWith("clientesPF.csv")) {

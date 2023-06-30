@@ -11,7 +11,7 @@ public class ArquivoSeguro implements l_Arquivo<Seguro> {
     }
 
     @Override
-    public String lerArquivo(List<Seguro> lista) {
-        return null;
+    public String lerArquivo(List<Seguro> lista, String path) {
+
     }
 }
