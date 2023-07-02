@@ -19,9 +19,9 @@ public class ArquivoClientePF implements l_Arquivo<ClientePF>{
     }
 
     @Override
-    public String lerArquivo(List<ClientePF> lista, String path) throws IOException, ParseException {
+    public String lerArquivo(List<ClientePF> lista) throws IOException, ParseException {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        File file = new File(path);
+        File file = new File("src/Arquivos/lab06-seguradora_arquivos_v2/clientesPF.csv");
         String demilitador = ",";
         List<String[]> linhas = new ArrayList<>();
         List<Veiculo> listaVeiculo = new ArrayList<>();
@@ -38,25 +38,24 @@ public class ArquivoClientePF implements l_Arquivo<ClientePF>{
                 }
             }
         }
-
-        for (File f : file.listFiles()) {
-            if (f.getName().endsWith("clientesPF.csv")) {
-                BufferedReader br = new BufferedReader(new FileReader(f));
-                String linha = br.readLine();
-                while (linha != null) {
-                    List<Veiculo> listaVeiculo2 = new ArrayList<>();
-                    String[] campos = linha.split(demilitador);
-                    linhas.add(campos);
-                    for(int i = 0; i < listaVeiculo.size(); i++){
-                        if(listaVeiculo.get(i).getPlaca().equals(campos[8])){
-                            listaVeiculo2.add(listaVeiculo.get(i));
-                        }
-                    }
-                    lista.add(new ClientePF(campos[1], campos[3], campos[4], campos[2], campos[6], campos[5], campos[0], formato.parse(campos[7]), listaVeiculo2));
-                    linha = br.readLine();
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String linha = br.readLine();
+        while (linha != null) {
+            if(linha.equals("CPF_CLIENTE,NOME_CLIENTE,TELEFONE_CLIENTE,ENDERECO_CLIENTE,EMAIL_CLIENTE,SEXO,ENSINO,DATA_NASCIMENTO,PLACA_VEICULO_CLIENTE1")){
+                linha = br.readLine();
+                continue;
+            }
+            List<Veiculo> listaVeiculo2 = new ArrayList<>();
+            String[] campos = linha.split(demilitador);
+            linhas.add(campos);
+            for(int i = 0; i < listaVeiculo.size(); i++){
+                if(listaVeiculo.get(i).getPlaca().equals(campos[8])){
+                    listaVeiculo2.add(listaVeiculo.get(i));
                 }
             }
+            lista.add(new ClientePF(campos[1], campos[3], campos[4], campos[2], campos[6], campos[5], campos[0], formato.parse(campos[7]), listaVeiculo2));
+            linha = br.readLine();
         }
-        return "Arquivo lido com sucesso!";
+        return "ClientePF lido com sucesso!";
     }
 }

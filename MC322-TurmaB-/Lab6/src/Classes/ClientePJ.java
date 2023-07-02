@@ -1,9 +1,6 @@
 package Classes;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class ClientePJ extends Cliente{
     private String CNPJ;
@@ -11,12 +8,13 @@ public class ClientePJ extends Cliente{
     private  List<Frota> listaFrota;
     private int QtdFuncionarios;
 
-    public ClientePJ(String nome, String endereco, String email, String telefone, String CNPJ, Date dataFundacao, List<Frota> listaFrota, int qtdFuncionarios) {
+    public ClientePJ(String nome, String endereco, String email, String telefone, String CNPJ, Date dataFundacao, List<Frota> listaFrota) {
         super(nome, endereco, email, telefone);
         this.CNPJ = CNPJ;
         this.dataFundacao = dataFundacao;
         this.listaFrota = listaFrota;
-        QtdFuncionarios = qtdFuncionarios;
+        Random random = new Random();
+        this.QtdFuncionarios = random.nextInt(1000);
     }
 
     public String getCNPJ() {
@@ -56,7 +54,14 @@ public class ClientePJ extends Cliente{
             return true;
         }
     }
-
+    public Frota getFrota(String code){
+        for(Frota frota : listaFrota){
+            if(frota.getCode().equals(code)){
+                return frota;
+            }
+        }
+        return null;
+    }
     public boolean removerfrota(Frota frota){
         if (listaFrota.contains(frota)) {
             listaFrota.remove(frota);

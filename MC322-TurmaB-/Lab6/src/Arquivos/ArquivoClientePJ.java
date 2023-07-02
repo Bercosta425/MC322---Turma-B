@@ -22,45 +22,25 @@ public class ArquivoClientePJ implements l_Arquivo<ClientePJ> {
     }
 
     @Override
-    public String lerArquivo(List<ClientePJ> lista, String path) throws IOException, ParseException {
+    public String lerArquivo(List<ClientePJ> lista) throws IOException, ParseException {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        File file = new File(path);
+        File file = new File("src/Arquivos/lab06-seguradora_arquivos_v2/clientesPJ.csv");
         String demilitador = ",";
         List<String[]> linhas = new ArrayList<>();
         List<Frota> listaFrotas = new ArrayList<>();
 
-        //Cria lista complementar de frota para adicionar ao cliente
-        for (File f : file.listFiles()) {
-            if (f.getName().endsWith("frotas.csv")) {
-                BufferedReader br = new BufferedReader(new FileReader(f));
-                String linha = br.readLine();
-                while (linha != null) {
-                    String[] campos = linha.split(demilitador);
-                    linhas.add(campos);
-                    listaFrotas.add(new Frota(campos[0], campos[1], campos[2], Integer.parseInt(campos[3])));
-                }
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String linha = br.readLine();
+        while (linha != null) {
+            if(linha.equals("CNPJ_CLIENTE,NOME_CLIENTE,TELEFONE,ENDERECO,EMAIL_CLIENTE,DATA_FUND,CODE_FROTA")){
+                linha = br.readLine();
+                continue;
             }
+            String[] campos = linha.split(demilitador);
+            linhas.add(campos);
+            lista.add(new ClientePJ(campos[1], campos[3], campos[4], campos[2], campos[0], formato.parse(campos[5]),  listaFrotas));
+            linha = br.readLine();
         }
-
-        for (File f : file.listFiles()) {
-            if (f.getName().endsWith("clientesPJ.csv")) {
-                BufferedReader br = new BufferedReader(new FileReader(f));
-                String linha = br.readLine();
-                while (linha != null) {
-                    List<Veiculo> listaVeiculo2 = new ArrayList<>();
-                    String[] campos = linha.split(demilitador);
-                    linhas.add(campos);
-                    for(int i = 0; i < listaVeiculo.size(); i++){
-                        if(listaVeiculo.get(i).getPlaca().equals(campos[8])){
-                            listaVeiculo2.add(listaVeiculo.get(i));
-                        }
-                    }
-                        lista.add(new ClientePJ(campos[1], campos[3], campos[4], campos[2], campos[0], formato.parse(campos[5]), campos[6], 0);
-                    linha = br.readLine();
-                }
-            }
-        }
-        return "Arquivo lido com sucesso!";
-    }
+        return "ClientePJ lido com sucesso!";
     }
 }

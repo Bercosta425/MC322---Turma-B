@@ -195,7 +195,7 @@ public static void main(String[] args) throws ParseException, ExcecaoLeitura.Err
 
 
     ClientePF clientePf = new ClientePF("Pedro", "Rua do Pedro", "Pedro@Email.com", "99999999", "Ensino superior", "masculino", "280.012.389-38", dataNascimento, listaVeiculos);
-    ClientePJ clientePj = new ClientePJ("Empresa", "Rua da Empresa", "Empresa@Email.com", "99999999","51.174.235/0001-30" , dataFundacao, listaFrota,88);
+    ClientePJ clientePj = new ClientePJ("Empresa", "Rua da Empresa", "Empresa@Email.com", "99999999","51.174.235/0001-30" , dataFundacao, listaFrota);
     List<Cliente> listaClientes = new ArrayList<>();
     List<Sinistro> listaSinistros = new ArrayList<>();
     List<Seguro> listaSeguros = new ArrayList<>();

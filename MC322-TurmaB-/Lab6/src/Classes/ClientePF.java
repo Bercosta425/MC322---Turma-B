@@ -87,6 +87,14 @@ public class ClientePF extends Cliente {
         }
     }
 
+    public Veiculo getVeiculo(String placa){
+        for (Veiculo veiculo : listaVeiculos) {
+            if (veiculo.getPlaca().equals(placa)) {
+                return veiculo;
+            }
+        }
+        return null;
+    }
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner("\n");

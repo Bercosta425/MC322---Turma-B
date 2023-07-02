@@ -17,9 +17,9 @@ public class ArquivoVeiculo implements l_Arquivo<Veiculo> {
     }
 
     @Override
-    public String lerArquivo(List<Veiculo> lista, String path) throws IOException {
+    public String lerArquivo(List<Veiculo> lista) throws IOException {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        File file = new File(path);
+        File file = new File("src/Arquivos/lab06-seguradora_arquivos_v2/veiculos.csv");
         String demilitador = ",";
         List<String[]> linhas = new ArrayList<>();
 

@@ -73,6 +73,27 @@ public class Seguradora {
     public List<Seguro> getListaSeguros() {
         return listaSeguros;
     }
+    public ClientePF getClientePF(String CPF){
+        for (Cliente cliente : listaClientes) {
+            if (cliente instanceof ClientePF) {
+                if (((ClientePF) cliente).getCpf().equals(CPF)) {
+                    return (ClientePF) cliente;
+                }
+            }
+        }
+        return null;
+    }
+
+    public ClientePJ getClientePJ(String CNPJ){
+        for (Cliente cliente : listaClientes) {
+            if (cliente instanceof ClientePJ) {
+                if (((ClientePF) cliente).getCpf().equals(CNPJ)) {
+                    return (ClientePJ) cliente;
+                }
+            }
+        }
+        return null;
+    }
 
     public void setListaSeguros(List<Seguro> listaSeguros) {
         this.listaSeguros = listaSeguros;
